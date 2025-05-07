@@ -1,0 +1,252 @@
+/* Reset mặc định cho html, body và #root */
+html, body, #root {
+  margin: 0 !important;
+  padding: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  overflow: hidden !important; /* Ngăn cuộn ở cấp độ body */
+}
+
+/* Tùy chỉnh body */
+body {
+  background-color: #1a2b3c !important; /* Theme tối */
+  color: #ffffff !important;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Tùy chỉnh sidebar */
+.sidebar, .offcanvas {
+  background-color: #2c3e50;
+  color: white;
+  width: 250px !important; /* Chiều rộng cố định của sidebar */
+  height: 100vh !important; /* Full chiều cao */
+  position: fixed;
+  top: 0;
+  left: 0;
+  overflow-y: auto; /* Cho phép cuộn nếu nội dung dài */
+}
+
+.offcanvas .nav-link, .sidebar .nav-link {
+  color: white;
+}
+
+.offcanvas .nav-link.active, .sidebar .nav-link.active {
+  background-color: #1b83ea;
+  color: white;
+}
+
+.offcanvas .text-muted, .sidebar .text-muted {
+  color: #12f067 !important;
+}
+
+/* Tùy chỉnh main content */
+.d-flex {
+  width: 100vw !important;
+  height: 100vh !important;
+}
+
+.flex-grow-1 {
+  flex-grow: 1 !important;
+  width: calc(100vw - 250px) !important; /* Chiều rộng = toàn bộ màn hình trừ sidebar */
+  height: 100vh !important; /* Full chiều cao */
+  margin-left: 250px !important; /* Đẩy nội dung sang phải để không đè lên sidebar */
+  background-color: #1a2b3c !important;
+  color: #ffffff !important;
+  overflow-y: auto !important; /* Cho phép cuộn nếu nội dung dài */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start !important; /* Đẩy nội dung lên trên */
+}
+
+/* Đảm bảo nội dung bên trong .flex-grow-1 hiển thị ở trên cùng */
+.flex-grow-1 .p-3,
+.flex-grow-1 .p-4 {
+  flex-grow: 0 !important; /* Không kéo dài container */
+  margin: 0 !important;
+  padding: 20px !important;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start !important; /* Đẩy nội dung lên trên */
+  align-items: stretch !important;
+}
+
+/* Tùy chỉnh trên mobile */
+@media (max-width: 767.98px) {
+  .sidebar {
+    display: none !important; /* Ẩn sidebar trên mobile */
+  }
+
+  .flex-grow-1 {
+    margin-left: 0 !important; /* Không có sidebar cố định trên mobile */
+    width: 100vw !important; /* Chiếm toàn bộ chiều rộng */
+  }
+
+  .offcanvas {
+    width: 250px;
+  }
+
+  /* Đảm bảo nút hamburger hiển thị rõ trên mobile */
+  .btn.d-md-none {
+    display: block !important;
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    z-index: 1000;
+  }
+}
+
+/* Tùy chỉnh bảng */
+.table-responsive {
+  width: 100% !important; /* Full chiều rộng */
+  overflow-x: auto;
+}
+
+.table {
+  width: 100% !important; /* Bảng full chiều rộng */
+  margin-bottom: 0 !important;
+  background-color: #ffffff !important; /* Nền trắng cho bảng */
+  color: #000000 !important; /* Chữ đen */
+}
+
+.table th,
+.table td {
+  padding: 10px !important;
+  vertical-align: middle !important;
+}
+
+.table thead th {
+  background-color: #f8f9fa !important; /* Nền xám nhạt cho header */
+  color: #000000 !important;
+  font-weight: bold !important;
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+  background-color: #f2f2f2 !important; /* Dòng lẻ có màu xám nhạt */
+}
+
+.table-bordered th,
+.table-bordered td {
+  border: 1px solid #dee2e6 !important; /* Viền xám */
+}
+
+/* Tùy chỉnh card */
+.card {
+  width: 100% !important; /* Card full chiều rộng */
+  margin-bottom: 0 !important; /* Loại bỏ khoảng cách dưới card */
+}
+
+/* Định dạng nội dung trong card */
+.card-body {
+  padding: 20px !important;
+  text-align: center !important; /* Căn giữa nội dung trong card */
+}
+
+.card-title {
+  margin: 0 !important;
+  font-size: 16px !important;
+  color: #555 !important; /* Màu chữ nhạt cho tiêu đề card */
+}
+
+.card-text {
+  margin: 10px 0 0 !important;
+  font-size: 24px !important;
+  font-weight: bold !important; /* Số liệu in đậm */
+  color: #000 !important; /* Màu đen cho số liệu */
+}
+
+/* Tùy chỉnh react-tabs */
+.react-tabs__tab-list {
+  border-bottom: none !important;
+  background-color: #2c3e50 !important; /* Nền xanh đậm giống sidebar */
+  padding: 10px 0 !important;
+  margin-bottom: 20px !important;
+}
+
+.react-tabs__tab {
+  color: #ffffff !important; /* Chữ trắng */
+  border: none !important;
+  padding: 10px 20px !important;
+  margin: 0 5px !important;
+  border-radius: 5px !important;
+  transition: background-color 0.3s !important;
+}
+
+.react-tabs__tab--selected {
+  background-color: #1b83ea !important; /* Highlight bằng màu xanh dương */
+  color: #ffffff !important;
+}
+
+.react-tabs__tab:hover {
+  background-color: #1b83ea !important;
+}
+
+.react-tabs__tab-panel {
+  background-color: #1a2b3c !important; /* Nền xanh đậm giống main content */
+  color: #ffffff !important;
+}
+
+/* Đảm bảo nội dung các tab hiển thị ở trên cùng */
+.tab-content {
+  width: 100% !important;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start !important; /* Đẩy nội dung lên trên */
+  align-items: stretch !important;
+}
+
+/* Tùy chỉnh các thành phần trong tab */
+.tab-content .row {
+  width: 100% !important;
+  margin: 0 !important;
+}
+
+.tab-content .col-md-6 {
+  width: 50% !important; /* Chia đôi cho 2 card nằm ngang */
+  max-width: 50% !important;
+  padding: 0 10px !important;
+}
+
+/* Đảm bảo các thành phần trong tab hiển thị ở trên cùng */
+.tab-content > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start !important; /* Đẩy nội dung lên trên */
+}
+
+/* Tùy chỉnh welcome message */
+.welcome-message {
+  margin-top: 20px !important;
+  font-size: 14px !important;
+  color: #ccc !important;
+  text-align: left !important;
+}
+
+/* Tùy chỉnh form */
+.form-label {
+  margin-bottom: 0.25rem !important; /* Giảm khoảng cách giữa label và select */
+}
+
+.form-select {
+  width: 100% !important;
+}
+
+/* Tùy chỉnh thông báo và tài khoản */
+.tab-content .card-body {
+  width: 100% !important;
+}
+
+/* Tùy chỉnh danh sách trong tab "Báo cáo và thống kê" */
+.tab-content ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 20px 0;
+}
+
+.tab-content ul li {
+  background-color: #ffffff;
+  color: #000000;
+  padding: 10px;
+  margin-bottom: 5px;
+  border-radius: 5px;
+}
